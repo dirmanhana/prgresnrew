@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or metadata.title }}</title>
+  <meta name="description" content="{{ description or metadata.description }}">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts: Montserrat (UI) and Bitter (Content) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Share Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="brand-logo"><span>Progres</span>News</div>
+        <div style="font-size: 0.8rem; color: #666; font-weight: 600;">{{ page.date | dateReadable if page.date else "Senin, 09 Februari 2026" }}</div>
+      </div>
+    </div>
+
+    <nav class="nav-main">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; position: relative;">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/"><i class="fas fa-home"></i></a></li>
+          <li><a href="/tags/nasional/">Nasional</a></li>
+          <li><a href="/tags/daerah/">Daerah</a></li>
+          <li><a href="/tags/ekonomi/">Ekonomi</a></li>
+          <li><a href="/tags/bola/">Bola</a></li>
+          <li><a href="/tags/sport/">Sport</a></li>
+          <li><a href="/tags/lifestyle/">Lifestyle</a></li>
+          <li><a href="/tags/religi/">Religi</a></li>
+          <li><a href="/tags/video/">Video</a></li>
+          
+          <!-- Mobile Only Actions -->
+          <li class="mobile-only"><a href="#" id="mobileSearchTrigger"><i class="fas fa-search"></i> Cari Berita</a></li>
+          <li class="mobile-only"><a href="#"><i class="fas fa-user-circle"></i> Akun Saya</a></li>
+        </ul>
+        
+        <!-- Right Header Icons (Desktop Only) -->
+        <div class="header-actions">
+          <i class="fas fa-user-circle header-icon"></i>
+          <i class="fas fa-search header-icon desktop-search-trigger"></i>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="nav-sub">
+      <div class="container">
+        <ul>
+          <li><a href="/tags/sumatera/">Sumatera</a></li>
+          <li><a href="/tags/jabar/">Jabar</a></li>
+          <li><a href="/tags/banten/">Banten</a></li>
+          <li><a href="/tags/jateng/">Jateng</a></li>
+          <li><a href="/tags/daerah/">Daerah</a></li>
+          <li><a href="/tags/jatim/">Jatim</a></li>
+          <li><a href="/tags/bali/">Bali</a></li>
+          <li><a href="/tags/populer/" style="color:var(--color-primary); font-weight:900;">🔥 POPULER</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    {{ content | safe }}
+  </main>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <i class="fas fa-times close-search" id="closeSearch"></i>
+      <input type="text" class="search-input" id="searchInput" placeholder="Ketik kata kunci pencarian..." autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <!-- Social Media -->
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <a href="/tentang-kami/">Tentang Kami</a>
+        <a href="/redaksi/">Redaksi</a>
+        <a href="/info-iklan/">Info Iklan</a>
+        <a href="/pedoman-media-siber/">Pedoman Media Siber</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/sitemap.xml">Peta Situs</a>
+        <a href="/feed.xml"><i class="fas fa-rss" style="color:#ee802f;"></i> RSS</a>
+      </div>
+
+      <!-- Network -->
+      <div class="footer-network">
+        <span class="network-label">A Group Member of VIVA Digital Network</span>
+        <div class="network-logos">
+          <span>VIVA.co.id</span>
+          <span>tvOnenews</span>
+          <span>ANTVklik</span>
+          <span>intipSeleb</span>
+          <span>JagoDangdut</span>
+        </div>
+      </div>
+
+      <p style="text-align: center; color: #777; margin-top: 2rem;">&copy; 2026 tvOnenews.com. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Search Functionality
+    const desktopSearchIcon = document.querySelector('.desktop-search-trigger');
+    const mobileSearchTrigger = document.getElementById('mobileSearchTrigger');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearch = document.getElementById('closeSearch');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    let posts = [];
+
+    // Mobile Menu
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Change icon
+        const icon = mobileMenuToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    }
+
+    // Open Search Logic
+    async function openSearch(e) {
+      if(e) e.preventDefault();
+      // Close mobile menu if open
+      if (navLinks.classList.contains('active')) {
+         navLinks.classList.remove('active');
+         const icon = mobileMenuToggle.querySelector('i');
+         icon.classList.remove('fa-times');
+         icon.classList.add('fa-bars');
+      }
+
+      searchOverlay.style.display = 'flex';
+      searchInput.focus();
+      
+      // Fetch posts if not already loaded
+      if (posts.length === 0) {
+        try {
+          const res = await fetch('/search.json');
+          posts = await res.json();
+        } catch (err) {
+          console.error('Failed to load search index', err);
+        }
+      }
+    }
+
+    if (desktopSearchIcon) {
+        desktopSearchIcon.addEventListener('click', openSearch);
+    }
+    
+    if (mobileSearchTrigger) {
+        mobileSearchTrigger.addEventListener('click', openSearch);
+    }
+
+    // Close Search
+    function closeSearchModal() {
+      searchOverlay.style.display = 'none';
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+    }
+
+    closeSearch.addEventListener('click', closeSearchModal);
+    searchOverlay.addEventListener('click', (e) => {
+      if (e.target === searchOverlay) closeSearchModal();
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && searchOverlay.style.display === 'flex') {
+        closeSearchModal();
+      }
+    });
+
+    // Handle Input
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      if (term.length < 2) {
+        searchResults.innerHTML = '';
+        return;
+      }
+
+      const filtered = posts.filter(post => 
+        post.title.toLowerCase().includes(term) || 
+        post.category.toLowerCase().includes(term)
+      );
+
+      if (filtered.length > 0) {
+        searchResults.innerHTML = filtered.map(post => `
+          <a href="${post.url}" class="search-result-item">
+            <span class="search-result-meta">${post.category} - ${post.date}</span>
+            <div class="search-result-title">${post.title}</div>
+          </a>
+        `).join('');
+      } else {
+        searchResults.innerHTML = '<div style="color:#777; padding:20px 0;">Tidak ada hasil ditemukan.</div>';
+      }
+    });
+  </script>
+</body>
+</html>

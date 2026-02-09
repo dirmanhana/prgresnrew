@@ -1,0 +1,31 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ metadata.url }}/</loc>
+    {% set latestPost = collections.all | reverse | first %}
+    <lastmod>{{ latestPost.date | dateIso if latestPost else "2026-02-10T00:00:00Z" }}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ metadata.url }}/indeks/</loc>
+    {% set latestPost = collections.all | reverse | first %}
+    <lastmod>{{ latestPost.date | dateIso if latestPost else "2026-02-10T00:00:00Z" }}</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% for page in collections.all %}
+    {% if not page.data.eleventyExcludeFromCollections and page.url %}
+    <url>
+      <loc>{{ metadata.url }}{{ page.url | url }}</loc>
+      <lastmod>{{ page.date | dateIso }}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+    </url>
+    {% endif %}
+  {% endfor %}
+</urlset>

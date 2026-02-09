@@ -1,0 +1,49 @@
+---
+pagination:
+  data: paginatedTags
+  size: 1
+  alias: paged
+  addAllPagesToCollections: true
+layout: layouts/base.njk
+eleventyComputed:
+  title: "Kategori: {{ paged.tagName | capitalize }} - Halaman {{ paged.pageNumber + 1 }}"
+permalink: "/tags/{{ paged.tagName }}/{% if paged.pageNumber > 0 %}{{ paged.pageNumber + 1 }}/{% endif %}"
+---
+
+<div class="container">
+  <div class="section-title">
+    <span>Kategori: {{ paged.tagName | capitalize }}</span>
+  </div>
+
+  <div class="news-grid">
+    {% for post in paged.posts %}
+      <article class="news-card">
+        <a href="{{ post.url }}" class="news-card-img">
+          <img src="{{ post.data.image or 'https://picsum.photos/400/225' }}" loading="lazy" alt="{{ post.data.title }}">
+        </a>
+        <div class="news-card-body">
+          <span class="news-tag">{{ paged.tagName }}</span>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <div class="news-meta">
+            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination Controls -->
+  {% if paged.totalPages > 1 %}
+  <div class="pagination">
+    {% if paged.pageSlugs.prev %}
+      <a href="{{ paged.pageSlugs.prev }}" class="page-link prev">Previous</a>
+    {% endif %}
+    
+    <span class="page-info">Halaman {{ paged.pageNumber + 1 }} dari {{ paged.totalPages }}</span>
+    
+    {% if paged.pageSlugs.next %}
+      <a href="{{ paged.pageSlugs.next }}" class="page-link next">Next</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,14 @@
+---
+permalink: /search.json
+eleventyExcludeFromCollections: true
+---
+[
+  {% for post in collections.post %}
+  {
+    "title": "{{ post.data.title | replace('"', '\\"') }}",
+    "url": "{{ post.url }}",
+    "date": "{{ post.date | dateReadable }}",
+    "category": "{{ post.data.category or 'Umum' }}"
+  }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]

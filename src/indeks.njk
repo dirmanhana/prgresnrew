@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+title: Indeks Berita
+pagination:
+  data: collections.post
+  size: 12
+  alias: posts
+  reverse: true
+permalink: "/indeks/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+<div class="container">
+  <div class="section-title">
+    <span>Indeks Berita</span>
+  </div>
+
+  <div class="news-grid">
+    {% for post in posts %}
+      <article class="news-card">
+        <a href="{{ post.url }}" class="news-card-img">
+          <img src="{{ post.data.image or 'https://picsum.photos/400/225' }}" loading="lazy" alt="{{ post.data.title }}">
+        </a>
+        <div class="news-card-body">
+          <span class="news-tag">{{ post.data.category or 'Umum' }}</span>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <div class="news-meta">
+            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination Controls -->
+  {% if pagination.pages.length > 1 %}
+  <div class="pagination">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="page-link prev">Previous</a>
+    {% endif %}
+    
+    <span class="page-info">Halaman {{ pagination.pageNumber + 1 }} dari {{ pagination.pages.length }}</span>
+    
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="page-link next">Next</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

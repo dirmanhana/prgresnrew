@@ -1,0 +1,9 @@
+{
+    "title": "Portal Berita Terkini",
+    "description": "Sumber berita terpercaya dan terkini.",
+    "url": "https://example.com",
+    "author": {
+        "name": "Redaksi",
+        "email": "redaksi@example.com"
+    }
+}

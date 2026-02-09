@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="main-layout" style="grid-template-columns: 1fr;">
+    <article class="static-page">
+        <h1 class="article-title">{{ title }}</h1>
+        <div class="article-content">
+            {{ content | safe }}
+        </div>
+    </article>
+</div>
+
+<style>
+.static-page {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+}
+@media (max-width: 900px) {
+    .static-page {
+        padding: 1rem;
+    }
+}
+</style>

@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+title: Beranda
+pagination:
+  data: collections.post
+  size: 15
+  alias: pagedPosts
+  reverse: true
+permalink: "/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+
+<!-- Headline Section (Only on first page) -->
+{% if pagination.pageNumber == 0 %}
+<section class="headline-section">
+  
+  <!-- Main Featured Story (First Post) -->
+  {% if pagedPosts.length > 0 %}
+  {% set mainPost = pagedPosts[0] %}
+  <article class="main-headline">
+    <a href="{{ mainPost.url }}" style="display: block; width: 100%; height: 100%;">
+      <img src="{{ mainPost.data.image or 'https://picsum.photos/seed/pol/800/450' }}" alt="{{ mainPost.data.title }}">
+      <div class="main-headline-content">
+        <span style="background:var(--color-primary); padding: 0.25rem 0.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">{{ mainPost.data.category or 'Terkini' }}</span>
+        <h2>{{ mainPost.data.title }}</h2>
+        <p style="margin: 0; font-size: 0.875rem; opacity: 0.9;">{{ mainPost.data.description or 'Berita terbaru dan terhangat yang wajib Anda ketahui hari ini.' }}</p>
+      </div>
+    </a>
+  </article>
+  {% endif %}
+
+  <!-- Side Headlines (Next 3 Posts) -->
+  <div class="side-headlines">
+    {% for post in pagedPosts.slice(1, 4) %}
+    <article class="sub-headline-card">
+      <img src="{{ post.data.image or 'https://picsum.photos/seed/news/100/70' }}" alt="{{ post.data.title }}">
+      <div>
+        <span style="color:var(--color-primary); font-size: 0.7rem; font-weight: 700;">{{ post.data.category | upper or 'BERITA' }}</span>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Latest News Grid -->
+<section>
+  <div class="section-title">
+    <span>{% if pagination.pageNumber == 0 %}Berita Terkini{% else %}Arsip Berita - Halaman {{ pagination.pageNumber + 1 }}{% endif %}</span>
+  </div>
+  
+  <div class="news-grid">
+    {# On first page, skip the first 4 posts (1 hero + 3 side). On other pages, show all 15. #}
+    {% set gridStartIndex = 4 if pagination.pageNumber == 0 else 0 %}
+    
+    {% for post in pagedPosts.slice(gridStartIndex) %}
+      <article class="news-card">
+        <a href="{{ post.url }}" class="news-card-img">
+          <img src="{{ post.data.image or 'https://picsum.photos/400/225' }}" loading="lazy" alt="{{ post.data.title }}">
+        </a>
+        <div class="news-card-body">
+          <span class="news-tag">{{ post.data.category or 'Umum' }}</span>
+          <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+          <div class="news-meta">
+            <time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  
+  <!-- Pagination Controls -->
+  {% if pagination.pages.length > 1 %}
+  <div class="pagination">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="page-link prev">Previous</a>
+    {% endif %}
+    
+    <span class="page-info">Halaman {{ pagination.pageNumber + 1 }} dari {{ pagination.pages.length }}</span>
+    
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="page-link next">Next</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>

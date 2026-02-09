@@ -1,0 +1,158 @@
+---
+layout: layouts/base.njk
+---
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ title }}",
+  "image": [
+    "{{ image | default('https://picsum.photos/seed/news/1200/675') }}"
+  ],
+  "datePublished": "{{ date | dateIso }}",
+  "dateModified": "{{ date | dateIso }}",
+  "author": [{
+      "@type": "Person",
+      "name": "{{ author | default('Tim tvOnenews') }}",
+      "url": "{{ metadata.url }}"
+    }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ metadata.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ metadata.url }}/images/logo.png"
+    }
+  },
+  "description": "{{ description or content | truncate(160) | striptags }}"
+}
+</script>
+
+<div class="main-layout">
+  <!-- Left Column: Article Content -->
+  <article>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="/">HOME</a> <span>/</span> 
+      {% if category %}
+        <a href="/tags/{{ category | slugify }}/">{{ category | upper }}</a>
+      {% else %}
+        <a href="/indeks/">NEWS</a>
+      {% endif %}
+      <span>/</span> 
+      <span class="active">{{ title | truncate(30) | upper }}</span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="article-title">{{ title }}</h1>
+
+    <!-- Meta Info -->
+    <div class="article-meta-box">
+      <div class="meta-row">
+        <span class="meta-label">Reporter :</span> {{ author | default("Tim tvOnenews") }}
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Editor :</span> {{ editor | default("Redaksi") }}
+      </div>
+      <div class="meta-row" style="margin-top: 0.5rem;">
+        <i class="far fa-clock"></i> {{ date | dateReadable }} - 12:00 WIB
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="share-buttons">
+        <span class="share-label">Share :</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ metadata.url }}{{ page.url }}" target="_blank" class="share-btn bg-fb" title="Share ke Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/intent/tweet?text={{ title | urlencode }}&url={{ metadata.url }}{{ page.url }}" target="_blank" class="share-btn bg-x" title="Share ke X"><i class="fab fa-twitter"></i></a>
+        <a href="https://api.whatsapp.com/send?text={{ title | urlencode }}%20{{ metadata.url }}{{ page.url }}" target="_blank" class="share-btn bg-wa" title="Share ke WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <button onclick="copyToClipboard()" class="share-btn bg-link" title="Salin Link" style="border:none; cursor:pointer;"><i class="fas fa-link"></i></button>
+      </div>
+    </div>
+
+    <!-- Featured Image -->
+    <figure class="featured-image-wrapper">
+      <img src="{{ image | default('https://picsum.photos/800/450') }}" alt="{{ title }}" class="featured-image">
+      <figcaption class="image-caption">{{ image_caption | default('Ilustrasi - Pemain sepak bola') }}</figcaption>
+    </figure>
+
+    <!-- Article Content (Bitter Font) -->
+    <div class="article-content">
+      {{ content | safe }}
+    </div>
+
+    <!-- Tags -->
+    <div class="article-tags">
+      <span class="tag-title">Tag :</span>
+      <div class="tag-list">
+        {% if tags %}
+          {% for tag in tags %}
+            {% if tag != 'post' and tag != 'all' and tag != 'popular' %}
+              <a href="/tags/{{ tag | slugify }}/" class="tag-item">{{ tag }}</a>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <a href="/tags/tvone-news/" class="tag-item">tvone news</a>
+          <a href="/tags/berita-terkini/" class="tag-item">berita terkini</a>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+
+  <!-- Right Column: Sidebar -->
+  <aside>
+    <!-- POPULER Widget -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">Terpopuler</h3>
+      <ul class="populer-list">
+        {% set popularPosts = collections.popular | reverse | limit(5) %}
+        {% if popularPosts.length %}
+          {% for post in popularPosts %}
+          <li class="populer-item">
+            <div class="populer-num">{{ loop.index }}</div>
+            <div>
+              <span class="populer-tag">Trend</span>
+              <div class="populer-text">
+                <a href="{{ post.url }}">{{ post.data.title }}</a>
+              </div>
+              <span style="font-size:0.7rem; color:#999;">{{ post.date | dateReadable }}</span>
+            </div>
+          </li>
+          {% endfor %}
+        {% else %}
+           <!-- Fallback if no popular posts found -->
+           {% for post in collections.post | reverse | limit(5) %}
+           <li class="populer-item">
+             <div class="populer-num">{{ loop.index }}</div>
+             <div>
+               <span class="populer-tag">Trend</span>
+               <div class="populer-text">
+                 <a href="{{ post.url }}">{{ post.data.title }}</a>
+               </div>
+               <span style="font-size:0.7rem; color:#999;">{{ post.date | dateReadable }}</span>
+             </div>
+           </li>
+           {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+    
+    <!-- Banner Ad Placeholder -->
+    <div class="sidebar-widget" style="background:#ddd; height:250px; display:flex; align-items:center; justify-content:center; color:#777;">
+      IKLAN SIDEBAR
+    </div>
+  </aside>
+</div>
+
+<script>
+function copyToClipboard() {
+  const dummy = document.createElement('input');
+  const text = window.location.href;
+  document.body.appendChild(dummy);
+  dummy.value = text;
+  dummy.select();
+  document.execCommand('copy');
+  document.body.removeChild(dummy);
+  alert('Link berhasil disalin ke clipboard!');
+}
+</script>
