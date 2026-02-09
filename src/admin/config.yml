@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: dirmanhana/prgresnrew # GANTI dengan username/repo-anda
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Berita"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Tanggal", name: "date", widget: "datetime" }
+      - { label: "Penulis", name: "author", widget: "string", default: "Redaksi" }
+      - { label: "Kategori", name: "category", widget: "select", options: ["Nasional", "Daerah", "Ekonomi", "Bola", "Lifestyle", "Teknologi", "Kesehatan", "Otomotif"] }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Gambar Utama (URL)", name: "image", widget: "image" }
+      - { label: "Deskripsi Singkat", name: "description", widget: "text" }
+      - { label: "Isi Berita", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk" }
+
+  - name: "pages"
+    label: "Halaman Statis"
+    files:
+      - label: "Tentang Kami"
+        name: "tentang-kami"
+        file: "src/tentang-kami.md"
+        fields:
+          - { label: "Judul", name: "title", widget: "string" }
+          - { label: "Isi", name: "body", widget: "markdown" }
+      - label: "Redaksi"
+        name: "redaksi"
+        file: "src/redaksi.md"
+        fields:
+          - { label: "Judul", name: "title", widget: "string" }
+          - { label: "Isi", name: "body", widget: "markdown" }
+      - label: "Info Iklan"
+        name: "info-iklan"
+        file: "src/info-iklan.md"
+        fields:
+          - { label: "Judul", name: "title", widget: "string" }
+          - { label: "Isi", name: "body", widget: "markdown" }
