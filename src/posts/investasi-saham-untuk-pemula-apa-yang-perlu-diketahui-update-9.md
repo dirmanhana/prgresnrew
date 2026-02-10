@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Investasi Saham untuk Pemula: Apa yang Pe
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Investasi Saham untuk Pemula: Apa yang Perlu Diketahui? - Update 9. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Investasi Saham untuk Pemula: Apa yang Perlu Diketahui? - Update 9. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 

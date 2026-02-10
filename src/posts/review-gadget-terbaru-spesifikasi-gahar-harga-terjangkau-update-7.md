@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Review Gadget Terbaru: Spesifikasi Gahar 
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Review Gadget Terbaru: Spesifikasi Gahar Harga Terjangkau - Update 7. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Review Gadget Terbaru: Spesifikasi Gahar Harga Terjangkau - Update 7. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 

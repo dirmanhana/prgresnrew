@@ -13,7 +13,7 @@ description: Progres News hari ini resmi diluncurkan untuk memberikan informasi 
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Progres News Resmi Meluncur Menjadi Portal Berita Terpercaya. Harapan baru bagi dunia jurnalistik digital Indonesia telah lahir hari ini.</p>
+<p><strong>ProgresNews.com</strong> - Progres News Resmi Meluncur Menjadi Portal Berita Terpercaya. Harapan baru bagi dunia jurnalistik digital Indonesia telah lahir hari ini.</p>
 
 <p>Setelah melalui proses persiapan yang matang, Progres News hadir dengan visi menjadi sumber informasi utama yang menjunjung tinggi kode etik jurnalistik dan kecepatan informasi. Platform ini menggunakan teknologi modern untuk memastikan pembaca mendapatkan pengalaman terbaik.</p>
 

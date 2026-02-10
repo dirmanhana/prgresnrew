@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Startup Lokal Ini Berhasil Tembus Pasar G
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Startup Lokal Ini Berhasil Tembus Pasar Global - Update 38. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Startup Lokal Ini Berhasil Tembus Pasar Global - Update 38. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 

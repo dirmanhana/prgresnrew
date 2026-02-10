@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Resep Masakan Tradisional yang Wajib Dico
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Resep Masakan Tradisional yang Wajib Dicoba - Update 6. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Resep Masakan Tradisional yang Wajib Dicoba - Update 6. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 

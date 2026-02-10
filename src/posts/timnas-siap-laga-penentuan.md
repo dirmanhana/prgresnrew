@@ -13,7 +13,7 @@ description: Semangat juang Tim Nasional berada di puncaknya menjelang laga krus
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Semangat juang para pemain Tim Nasional terlihat sangat membara dalam sesi latihan terakhir di Stadion Utama pagi ini.</p>
+<p><strong>ProgresNews.com</strong> - Semangat juang para pemain Tim Nasional terlihat sangat membara dalam sesi latihan terakhir di Stadion Utama pagi ini.</p>
 
 <p>Pelatih kepala menyatakan bahwa seluruh pemain dalam kondisi fit dan siap memberikan yang terbaik bagi ribuan pendukung yang telah mengantre tiket sejak subuh tadi. "Ini bukan sekadar pertandingan, ini adalah harga diri bangsa," ujarnya singkat dalam konferensi pers.</p>
 

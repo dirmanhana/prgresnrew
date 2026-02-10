@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Jadwal Pertandingan Liga Inggris Pekan In
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Jadwal Pertandingan Liga Inggris Pekan Ini - Update 21. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Jadwal Pertandingan Liga Inggris Pekan Ini - Update 21. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 

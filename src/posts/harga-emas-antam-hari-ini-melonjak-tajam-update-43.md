@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Harga Emas Antam Hari Ini Melonjak Tajam 
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Harga Emas Antam Hari Ini Melonjak Tajam - Update 43. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Harga Emas Antam Hari Ini Melonjak Tajam - Update 43. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 

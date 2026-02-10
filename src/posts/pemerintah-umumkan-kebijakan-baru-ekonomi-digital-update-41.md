@@ -9,7 +9,7 @@ description: "Ringkasan berita tentang Pemerintah Umumkan Kebijakan Baru Ekonomi
 layout: layouts/post.njk
 ---
 
-<p><strong>tvOnenews.com</strong> - Pemerintah Umumkan Kebijakan Baru Ekonomi Digital - Update 41. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
+<p><strong>ProgresNews.com</strong> - Pemerintah Umumkan Kebijakan Baru Ekonomi Digital - Update 41. Berita ini membahas perkembangan terbaru mengenai topik tersebut.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
