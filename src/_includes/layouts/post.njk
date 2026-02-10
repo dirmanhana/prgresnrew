@@ -101,39 +101,24 @@ layout: layouts/base.njk
 
   <!-- Right Column: Sidebar -->
   <aside>
-    <!-- POPULER Widget -->
     <div class="sidebar-widget">
-      <h3 class="widget-title">Terpopuler</h3>
+      <h3 class="widget-title">🔥 Terpopuler</h3>
       <ul class="populer-list">
-        {% set popularPosts = collections.popular | reverse | limit(5) %}
-        {% if popularPosts.length %}
-          {% for post in popularPosts %}
-          <li class="populer-item">
-            <div class="populer-num">{{ loop.index }}</div>
-            <div>
-              <span class="populer-tag">Trend</span>
-              <div class="populer-text">
-                <a href="{{ post.url }}">{{ post.data.title }}</a>
-              </div>
-              <span style="font-size:0.7rem; color:#999;">{{ post.date | dateReadable }}</span>
+        {% set popularPosts = collections.popular | limit(5) %}
+        {% for post in popularPosts %}
+        <li class="populer-item">
+          <div class="populer-num">{{ loop.index }}</div>
+          <div class="populer-content">
+            <div class="populer-meta">
+               <span class="populer-tag">{{ post.data.category | upper }}</span>
+               <span class="populer-views"><i class="fas fa-eye"></i> {{ (100 + (loop.index0 * 15)) | random }} Dibaca</span>
             </div>
-          </li>
-          {% endfor %}
-        {% else %}
-           <!-- Fallback if no popular posts found -->
-           {% for post in collections.post | reverse | limit(5) %}
-           <li class="populer-item">
-             <div class="populer-num">{{ loop.index }}</div>
-             <div>
-               <span class="populer-tag">Trend</span>
-               <div class="populer-text">
-                 <a href="{{ post.url }}">{{ post.data.title }}</a>
-               </div>
-               <span style="font-size:0.7rem; color:#999;">{{ post.date | dateReadable }}</span>
-             </div>
-           </li>
-           {% endfor %}
-        {% endif %}
+            <div class="populer-text">
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
       </ul>
     </div>
     

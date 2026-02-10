@@ -19,6 +19,21 @@ module.exports = function (eleventyConfig) {
         return encodeURIComponent(str);
     });
 
+    // Collection for Trending/Popular posts
+    eleventyConfig.addCollection("popular", function (collectionApi) {
+        const allPosts = collectionApi.getFilteredByTag("post").reverse();
+        // Option 1: Editor's choice
+        const trending = allPosts.filter(post => post.data.trending === true);
+
+        // Option 3 Simulation: Fill up with latest if trending < 5
+        if (trending.length < 5) {
+            const others = allPosts.filter(post => !post.data.trending);
+            return trending.concat(others).slice(0, 5);
+        }
+
+        return trending.slice(0, 5);
+    });
+
 
     return {
         dir: {
