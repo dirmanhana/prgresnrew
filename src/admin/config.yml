@@ -1,10 +1,6 @@
 backend:
-  name: github
-  repo: dirmanhana/prgresnrew
-  branch: main
-  base_url: https://oauth-prgresnrew.dirmanhana.workers.dev
-  auth_endpoint: auth
-  site_url: https://progresnews.com
+  name: git-gateway
+  branch: main # Branch di GitHub Anda
 
 media_folder: "src/images"
 public_folder: "/images"
