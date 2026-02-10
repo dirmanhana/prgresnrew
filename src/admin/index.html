@@ -2,28 +2,38 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Portal Berita</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <!-- Link ke file config untuk memastikan Decap menemukannya -->
-    <link href="config.yml" type="text/yaml" rel="cms-config-url">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Portal Berita</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Link ke file config untuk memastikan Decap menemukannya -->
+  <link href="config.yml" type="text/yaml" rel="cms-config-url">
 </head>
 
 <body>
-    <!-- Script Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
+  <!-- Script Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+
+    // Force netlify identity to open on click if it doesn't show up
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector('button');
+      if (btn && btn.textContent.includes('Login')) {
+        btn.addEventListener('click', () => {
+          if (window.netlifyIdentity) window.netlifyIdentity.open();
         });
       }
-    </script>
+    });
+  </script>
 </body>
 
 </html>
