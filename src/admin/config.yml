@@ -2,7 +2,7 @@ backend:
   name: github
   repo: dirmanhana/prgresnrew
   branch: main
-  base_url: https://oauth-prgresnrew.workers.dev # Nama Worker Anda
+  base_url: https://oauth-prgresnrew.dirmanhana.workers.dev # Nama Worker Anda
   auth_endpoint: auth
 
 media_folder: "src/images"
