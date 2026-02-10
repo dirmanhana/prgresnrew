@@ -2,8 +2,9 @@ backend:
   name: github
   repo: dirmanhana/prgresnrew
   branch: main
-  base_url: https://oauth-prgresnrew.dirmanhana.workers.dev # Nama Worker Anda
+  base_url: https://oauth-prgresnrew.dirmanhana.workers.dev
   auth_endpoint: auth
+  site_url: https://progresnews.com
 
 media_folder: "src/images"
 public_folder: "/images"
