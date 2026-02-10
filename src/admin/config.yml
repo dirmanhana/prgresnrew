@@ -15,8 +15,8 @@ collections:
       - { label: "Judul", name: "title", widget: "string" }
       - { label: "Tanggal", name: "date", widget: "datetime" }
       - { label: "Penulis", name: "author", widget: "string", default: "Redaksi" }
-      - { label: "Kategori", name: "category", widget: "select", options: ["Nasional", "Daerah", "Ekonomi", "Bola", "Lifestyle", "Teknologi", "Kesehatan", "Otomotif"] }
-      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Kategori", name: "category", widget: "select", options: ["Nasional", "Daerah", "Ekonomi", "Bola", "Sport", "Lifestyle", "Religi", "Teknologi", "Otomotif", "Video"] }
+      - { label: "Tags", name: "tags", widget: "list", hint: "Pisahkan dengan koma atau Enter (contoh: tvone news, viral, berita terbaru)", default: ["post"] }
       - { label: "Gambar Utama (URL)", name: "image", widget: "image" }
       - { label: "Deskripsi Singkat", name: "description", widget: "text" }
       - { label: "Isi Berita", name: "body", widget: "markdown" }
