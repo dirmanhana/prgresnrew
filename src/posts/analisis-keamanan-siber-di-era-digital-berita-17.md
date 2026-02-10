@@ -1,15 +1,17 @@
 ---
-title: "Analisis Keamanan Siber di Era Digital - Berita 17"
+title: Analisis Keamanan Siber di Era Digital - Berita 17
 date: 2026-01-24T09:19:40.006Z
-author: "Jurnalis Muda"
-category: "Teknologi"
+author: Jurnalis Muda
+category: Teknologi
 tags:
   - post
-  - "teknologi"
+  - teknologi
   - berita
   - update
-image: https://picsum.photos/seed/analisis-keamanan-siber-di-era-digital-berita-17/1200/675
-description: "Informasi terbaru mengenai Analisis Keamanan Siber di Era Digital - Berita 17. Simak ulasan lengkapnya hanya di Progres News."
+image: /images/1000156090.png
+description: Informasi terbaru mengenai Analisis Keamanan Siber di Era Digital -
+  Berita 17. Simak ulasan lengkapnya hanya di Progres News.
+trending: true
 layout: layouts/post.njk
 ---
 
