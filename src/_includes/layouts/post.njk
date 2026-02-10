@@ -111,7 +111,6 @@ layout: layouts/base.njk
           <div class="populer-content">
             <div class="populer-meta">
                <span class="populer-tag">{{ post.data.category | upper }}</span>
-               <span class="populer-views"><i class="fas fa-eye"></i> {{ (100 + (loop.index0 * 15)) | random }} Dibaca</span>
             </div>
             <div class="populer-text">
               <a href="{{ post.url }}">{{ post.data.title }}</a>
