@@ -374,22 +374,18 @@ a:hover {
 }
 
 .populer-num {
-    background: #eee;
-    color: #333;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    background: #000;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 700;
     flex-shrink: 0;
 }
-
-.populer-item:nth-child(1) .populer-num { background: #fee2e2; color: #ef4444; }
-.populer-item:nth-child(2) .populer-num { background: #ffedd5; color: #f97316; }
-.populer-item:nth-child(3) .populer-num { background: #fef9c3; color: #eab308; }
 
 .populer-content {
     flex-grow: 1;
