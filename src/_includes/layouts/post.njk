@@ -37,7 +37,7 @@ layout: layouts/base.njk
     <div class="breadcrumb">
       <a href="/">HOME</a> <span>/</span> 
       {% if category %}
-        <a href="/tags/{{ category | slugify }}/">{{ category | upper }}</a>
+        <a href="/kategori/{{ category | slugify }}/">{{ category | upper }}</a>
       {% else %}
         <a href="/indeks/">NEWS</a>
       {% endif %}
@@ -88,12 +88,12 @@ layout: layouts/base.njk
         {% if tags %}
           {% for tag in tags %}
             {% if tag != 'post' and tag != 'all' and tag != 'popular' %}
-              <a href="/tags/{{ tag | slugify }}/" class="tag-item">{{ tag }}</a>
+              <a href="/kategori/{{ tag | slugify }}/" class="tag-item">{{ tag }}</a>
             {% endif %}
           {% endfor %}
         {% else %}
-          <a href="/tags/tvone-news/" class="tag-item">tvone news</a>
-          <a href="/tags/berita-terkini/" class="tag-item">berita terkini</a>
+          <a href="/kategori/progres-news/" class="tag-item">progres news</a>
+          <a href="/kategori/berita-terkini/" class="tag-item">berita terkini</a>
         {% endif %}
       </div>
     </div>

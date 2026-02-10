@@ -63,10 +63,10 @@ module.exports = async function () {
         for (let i = 0; i < totalPages; i++) {
             // Prepare next/prev links
             let prev = null;
-            if (i > 0) prev = (i === 1) ? `/tags/${tagName}/` : `/tags/${tagName}/${i}/`;
+            if (i > 0) prev = (i === 1) ? `/kategori/${tagName}/` : `/kategori/${tagName}/${i + 1}/`;
 
             let next = null;
-            if (i < totalPages - 1) next = `/tags/${tagName}/${i + 2}/`;
+            if (i < totalPages - 1) next = `/kategori/${tagName}/${i + 2}/`;
 
             paginatedPages.push({
                 tagName: tagName,
@@ -75,8 +75,8 @@ module.exports = async function () {
                 pageNumber: i,
                 totalPages: totalPages,
                 pageSlugs: {
-                    first: `/tags/${tagName}/`,
-                    last: `/tags/${tagName}/${totalPages > 1 ? totalPages + '/' : ''}`,
+                    first: `/kategori/${tagName}/`,
+                    last: `/kategori/${tagName}/${totalPages > 1 ? totalPages + '/' : ''}`,
                     next: next,
                     prev: prev
                 }

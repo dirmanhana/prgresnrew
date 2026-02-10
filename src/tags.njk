@@ -7,7 +7,7 @@ pagination:
 layout: layouts/base.njk
 eleventyComputed:
   title: "Kategori: {{ paged.tagName | capitalize }} - Halaman {{ paged.pageNumber + 1 }}"
-permalink: "/tags/{{ paged.tagName }}/{% if paged.pageNumber > 0 %}{{ paged.pageNumber + 1 }}/{% endif %}"
+permalink: "/kategori/{{ paged.tagName }}/{% if paged.pageNumber > 0 %}{{ paged.pageNumber + 1 }}/{% endif %}"
 ---
 
 <div class="container">
